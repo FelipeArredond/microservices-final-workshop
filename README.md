@@ -9,12 +9,12 @@ Fecha límite de entrega: 17 de agosto de 2025 a las 11:59pm.
 - Enrutamiento de solicitudes a los microservicios correspondientes
 
 ### 1. Servicio de autenticación
-- Registro de usuarios
-- Autenticación
-- Encriptación de contraseñas
-- Generación de tokens
-- Protección de rutas usando JWT
-- Los usuarios se deben almacenar en una base de datos MongoDB
+- Registro de usuarios ✅
+- Autenticación ✅
+- Encriptación de contraseñas ✅
+- Generación de tokens ✅
+- Protección de rutas usando JWT 
+- Los usuarios se deben almacenar en una base de datos MongoDB ✅
   
 ### 2. Servicio de Bancos
 - Gestión de Bancos (creación, consulta, modificación)
