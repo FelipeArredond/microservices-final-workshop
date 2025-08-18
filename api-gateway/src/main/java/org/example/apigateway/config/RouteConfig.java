@@ -13,9 +13,9 @@ public class  RouteConfig {
   @Value("${products-service.id}") private String productsServiceId;
   @Value("${products-service.path}") private String productsServicePath;
 
-  @Value("${carts-service.url}") private String cartsServiceUrl;
-  @Value("${carts-service.id}") private String cartsServiceId;
-  @Value("${carts-service.path}") private String cartsServicePath;
+  @Value("${banks-service.url}") private String banksServiceUrl;
+  @Value("${banks-service.id}") private String banksServiceId;
+  @Value("${banks-service.path}") private String banksServicePath;
 
   private final JwtAuthenticationFilter filter;
 
@@ -27,7 +27,7 @@ public class  RouteConfig {
   public RouteLocator createRouteLocator(RouteLocatorBuilder builder) {
     return builder.routes()
       .route(productsServiceId, route -> route.path(productsServicePath).filters(gtf -> gtf.filter(filter)).uri(productsServiceUrl))
-      .route(cartsServiceId, route -> route.path(cartsServicePath).filters(gtf -> gtf.filter(filter)).uri(cartsServiceUrl))
+      .route(banksServiceId, route -> route.path(banksServicePath).filters(gtf -> gtf.filter(filter)).uri(banksServiceUrl))
       .route("auth-service", route -> route.path("/api/auth/**").uri("http://localhost:8084"))
       .build();
   }
