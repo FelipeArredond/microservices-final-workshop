@@ -17,8 +17,8 @@ Fecha límite de entrega: 17 de agosto de 2025 a las 11:59pm.
 - Los usuarios se deben almacenar en una base de datos MongoDB ✅
   
 ### 2. Servicio de Bancos
-- Gestión de Bancos (creación, consulta, modificación)
-- Exposición de API REST para operaciones CRUD de Bancos
+- Gestión de Bancos (creación, consulta, modificación) ✅
+- Exposición de API REST para operaciones CRUD de Bancos ✅
 
 ### 3. Servicio de Cuentas
 - Gestión de cuentas bancarias (creación, consulta, modificación)
