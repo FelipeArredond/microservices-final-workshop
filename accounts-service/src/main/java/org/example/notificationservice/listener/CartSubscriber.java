@@ -12,10 +12,10 @@ public class CartSubscriber {
   public CartSubscriber(AccountsService accountsService) {
     this.accountsService = accountsService;
   }
-
-  @RabbitListener(queues = "cart-queue")
-  public void receiveCart(Accounts accounts) {
-    accountsService.sendEmail(accounts.getUserEmail(), "Confirmación de compra", "Gracias por tu compra! " + accounts.getProducts().size());
-  }
+//
+//  @RabbitListener(queues = "cart-queue")
+//  public void receiveCart(Accounts accounts) {
+//    accountsService.sendEmail(accounts.getUserEmail(), "Confirmación de compra", "Gracias por tu compra! " + accounts.getProducts().size());
+//  }
 
 }

@@ -1,8 +1,10 @@
 package org.example.notificationservice.service;
 
 import org.example.notificationservice.model.Accounts;
+import org.example.notificationservice.model.BankDTO;
 import org.example.notificationservice.repository.IAccountRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
@@ -11,13 +13,20 @@ import java.util.List;
 public class AccountsService {
 
   private final IAccountRepository repository;
+  private final WebClient bankWebClient;
 
-  public AccountsService(IAccountRepository repository) {
+  public AccountsService(IAccountRepository repository, WebClient bankWebClient) {
       this.repository = repository;
+      this.bankWebClient = bankWebClient;
   }
 
   public Mono<Accounts> create(Accounts accounts) {
-    return this.repository.save(accounts);
+    return this.bankWebClient.get()
+            .uri("/api/banks/" + accounts.getBankId())
+            .retrieve()
+            .bodyToMono(BankDTO.class)
+            .switchIfEmpty(Mono.error(new RuntimeException("Bank don't exist")))
+            .flatMap(bankDTO -> this.repository.save(accounts));
   }
 
   public Mono<List<Accounts>> list() {
