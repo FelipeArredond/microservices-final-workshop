@@ -28,6 +28,7 @@ public class  RouteConfig {
     return builder.routes()
       .route(productsServiceId, route -> route.path(productsServicePath).filters(gtf -> gtf.filter(filter)).uri(productsServiceUrl))
       .route(banksServiceId, route -> route.path(banksServicePath).filters(gtf -> gtf.filter(filter)).uri(banksServiceUrl))
+      .route("accounts-service", route -> route.path("/api/accounts/**").filters(gtf -> gtf.filter(filter)).uri("http://localhost:8083"))
       .route("auth-service", route -> route.path("/api/auth/**").uri("http://localhost:8084"))
       .build();
   }

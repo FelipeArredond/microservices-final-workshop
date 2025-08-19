@@ -38,11 +38,16 @@ public class AccountsService {
   }
 
   public Mono<Accounts> update(Accounts account) {
-    return this.repository.findById(account.getId())
-            .flatMap(accountInDb -> {
-              accountInDb.setBankId(account.getBankId());
-              return this.repository.save(accountInDb);
-            });
+      return this.bankWebClient.get()
+              .uri("/api/banks/" + account.getBankId())
+              .retrieve()
+              .bodyToMono(BankDTO.class)
+              .switchIfEmpty(Mono.error(new RuntimeException("Bank don't exist")))
+              .flatMap(bankDTO -> this.repository.findById(account.getId())
+                      .flatMap(accountInDb -> {
+                          accountInDb.setBankId(account.getBankId());
+                          return this.repository.save(accountInDb);
+                  }));
   }
 
   public Mono<Void> delete(String id) {
