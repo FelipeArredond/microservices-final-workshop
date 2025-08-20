@@ -1,7 +1,8 @@
 rootProject.name = 'microservices'
 
 include 'api-gateway'
-include 'products-service'
+include 'transactions-service'
 include 'banks-service'
+include 'transfers-service'
 include 'accounts-service'
 include 'auth-service'

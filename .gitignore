@@ -1,0 +1,48 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.tmp
+*.swp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Spring Boot
+*.pid
+
+# Test reports
+test-results/
+*.xml
+*.html
+
+# Coverage reports
+coverage/
+*.exec
+*.ec
+
+# Generated files
+target/
+bin/
+
+# Application-specific
+.env
